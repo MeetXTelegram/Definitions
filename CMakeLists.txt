@@ -13,4 +13,4 @@ include_directories(include)
 
 add_library(Definitions SHARED include/Definitions.hpp src/createLogger.cpp src/SIGUSR1Handler.cpp)
 
-target_link_libraries(Definitions PRIVATE spdlog::spdlog)
+target_link_libraries(Definitions PRIVATE spdlog::spdlog libpqxx.so)
