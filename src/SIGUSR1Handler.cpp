@@ -7,7 +7,7 @@ void signalsUtils::SIGUSR1Handler(int signal) {
         spdlog::get("SignalHandler")->log(spdlog::level::warn, "Invalid signal provided({}) but expected {}", signal, SIGUSR1);
         return;
     }
-    spdlog::get("SignalHandler")->log(spdlog::level::warn, "The operation of MeetX was interrupted by signal {}, what should i do?\n\n1 -- Normal shutdown of MeetX\n2 -- Try to continue working");
+    spdlog::get("SignalHandler")->log(spdlog::level::warn, "The operation of MeetX was interrupted by signal {}, what should i do?\n\n1 -- Normal shutdown of MeetX\n2 -- Try to continue working", signal);
     while (true) {
         int action; std::cin >> action;
         switch (action) {
