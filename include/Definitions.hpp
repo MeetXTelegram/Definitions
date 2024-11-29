@@ -23,3 +23,7 @@ namespace loggingUtils {
 namespace signalsUtils {
     void SIGUSR1Handler(int signal);
 }
+
+namespace exceptionsUtils {
+    void TerminateHandler();
+}

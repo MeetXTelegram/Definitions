@@ -11,6 +11,7 @@ include(GNUInstallDirs)
 
 include_directories(include)
 
-add_library(Definitions SHARED include/Definitions.hpp src/createLogger.cpp src/SIGUSR1Handler.cpp)
+add_library(Definitions SHARED include/Definitions.hpp src/createLogger.cpp src/SIGUSR1Handler.cpp
+    src/TerminateHandler.cpp)
 
 target_link_libraries(Definitions PRIVATE spdlog::spdlog libpqxx.so)
