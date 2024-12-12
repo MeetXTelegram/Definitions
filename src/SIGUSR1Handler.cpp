@@ -19,7 +19,12 @@ void signalsUtils::SIGUSR1Handler(int signal) {
 
             case 2: {
                 spdlog::get("SignalHandler")->log(spdlog::level::info, "Selected action: 2(continue)");
-                siglongjmp(programBuf, 1);
+                if (programBuf[0].__mask_was_saved)
+                    siglongjmp(programBuf, 1);
+                else {
+                    spdlog::get("SignalHandler")->log(spdlog::level::critical, "State recovery error: it looks like programBuffer was not initialized correctly(__jmp_buf_tag::__mask_was_saved == 0)State recovery error: it looks like programBuffer was not initialized correctly(__jmp_buf_tag::__mask_was_saved == {})", programBuf[0].__mask_was_saved);
+                    std::exit(signal);
+                }
             }
 
             default: {
