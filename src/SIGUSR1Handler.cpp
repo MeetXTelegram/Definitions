@@ -1,5 +1,6 @@
 #include <Definitions.hpp>
 
+#include <csetjmp>
 #include <iostream>
 
 void signalsUtils::SIGUSR1Handler(int signal) {
@@ -18,7 +19,7 @@ void signalsUtils::SIGUSR1Handler(int signal) {
 
             case 2: {
                 spdlog::get("SignalHandler")->log(spdlog::level::info, "Selected action: 2(continue)");
-                return;
+                siglongjmp(programBuf, 1);
             }
 
             default: {

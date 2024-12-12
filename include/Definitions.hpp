@@ -1,5 +1,6 @@
 #pragma once
 
+#include <csetjmp>
 #include <csignal>
 #include <string>
 #include <memory>
@@ -21,6 +22,7 @@ namespace loggingUtils {
 }
 
 namespace signalsUtils {
+    inline sigjmp_buf programBuf;
     void SIGUSR1Handler(int signal);
 }
 
