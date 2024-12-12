@@ -9,4 +9,6 @@ void loggingUtils::createLogger(const std::string& loggerName, std::shared_ptr<s
     auto nLogger = std::make_shared<spdlog::logger>(loggerName, spdlog::sinks_init_list{fileSink, consoleSink});
     nLogger->set_level(level);
     spdlog::register_logger(nLogger);
+    if (loggerName == "MAIN_LOGGER" /* Global logger name */)
+    	spdlog::set_default_logger(nLogger);
 }
