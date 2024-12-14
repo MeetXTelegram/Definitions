@@ -13,7 +13,12 @@ include(GNUInstallDirs)
 
 include_directories(include)
 
-add_library(Definitions STATIC include/Definitions.hpp src/createLogger.cpp src/SIGUSR1Handler.cpp
-    src/TerminateHandler.cpp)
+add_library(Definitions STATIC
+    include/Definitions.hpp
+    src/createLogger.cpp
+    src/SIGUSR1Handler.cpp
+    src/TerminateHandler.cpp
+    src/Definitions.cpp
+)
 
 target_link_libraries(Definitions PRIVATE spdlog::spdlog libpqxx::pqxx ${PostgreSQL_LIBRARIES})

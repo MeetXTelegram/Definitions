@@ -22,7 +22,7 @@ namespace loggingUtils {
 }
 
 namespace signalsUtils {
-    inline sigjmp_buf programBuf;
+    extern sigjmp_buf programBuf;
     void SIGUSR1Handler(int signal);
 }
 
