@@ -22,3 +22,8 @@ add_library(Definitions STATIC
 )
 
 target_link_libraries(Definitions PRIVATE spdlog::spdlog libpqxx::pqxx ${PostgreSQL_LIBRARIES})
+
+install(TARGETS Definitions
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+install(FILES include/Definitions.hpp DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/Definitions)
