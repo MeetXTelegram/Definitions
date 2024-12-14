@@ -14,7 +14,7 @@
 #define createStdoutSink std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
 
 namespace db {
-    inline std::shared_ptr<pqxx::connection> database;
+   	extern std::shared_ptr<pqxx::connection> database;
 }
 
 namespace loggingUtils {
